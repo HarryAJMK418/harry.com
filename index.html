@@ -35,7 +35,8 @@ body{
   cursor: none;
 }
 .gg{
-  text-decoration: none
+  text-decoration: none;
+  cursor: none;
 }
 ::-webkit-scrollbar{
   width: 8px;
@@ -44,6 +45,10 @@ body{
 ::-webkit-scrollbar-thumb{
   border-radius: 8px;
   background: linear-gradient(to bottom, #00aeff, #ff00ea );
+}
+.hh{
+  cursor: none;
+  
 }
 </style>
 <style>
@@ -62,19 +67,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->
   <img src="media/ha.gif" style="width:100%">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black cursor-scale">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black cursor-scale hh">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale hh">
     <i class="fa fa-user w3-xxlarge"></i>
     <p>ABOUT</p>
   </a>
-  <a href="#my-works" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale">
+  <a href="#my-works" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale hh">
     <i class="fa fa-paint-brush w3-xxlarge"></i>
     <p>MY GRAPHIC DESIGNS</p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale">
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black cursor-scale hh">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
   </a>
@@ -85,7 +90,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
     <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">MY GRAPHIC DESIGNS</a>
+    <a href="#my-works" class="w3-bar-item w3-button" style="width:25% !important">MY GRAPHIC DESIGNS</a>
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
   </div>
 </div>
@@ -224,17 +229,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <button class="w3-button w3-light-grey w3-padding-large cursor-scale">
           <a href="https://discord.gg/zcRxeWGVrM" class="gg"><i class="fa fa-paper-plane"></i> SEND MESSAGE</a>
         </button>
-      </p>
-    </form>
+     
   <!-- End Contact Section -->
   </div>
   
     <!-- Footer -->
   <footer class="w3-content w3-padding-24 w3-text-grey w3-xlarge">
     
-    <a href="https://twitter.com/Harry_AJMK418"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-    <a href="https://www.artstation.com/harry_ajmk418"><i class="fa fa-paint-brush w3-hover-opacity"></i></a>
-    <a href="https://www.youtube.com/channel/UC26piqRGkQzAV1kUyPVVDug"><i class="fa fa-youtube-play w3-hover-opacity"></i></a>
+    <a href="https://twitter.com/Harry_AJMK418" class="hh"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    <a href="https://www.artstation.com/harry_ajmk418" class="hh"><i class="fa fa-paint-brush w3-hover-opacity"></i></a>
+    <a href="https://www.youtube.com/channel/UC26piqRGkQzAV1kUyPVVDug" class="hh"><i class="fa fa-youtube-play w3-hover-opacity"></i></a>
     
     
   <!-- End footer -->
@@ -245,7 +249,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
-<script src="main 2.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
