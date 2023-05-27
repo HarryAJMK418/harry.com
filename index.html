@@ -266,10 +266,35 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     window.addEventListener('load', function() {
       var preloader = document.getElementById('preloader');
       var gif = document.querySelector('#preloader img');
-      
+
       // Calculate the duration to play the GIF based on page loading time
       var loadingTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
       var gifDuration = Math.max(loadingTime, 2000); // Minimum duration of 2 seconds
+
+      // Calculate the frames per second based on the loading time
+      var fps = Math.ceil(gif.duration / (gifDuration / 1000));
+
+      // Adjust the animation frame rate of the GIF
+      var currentFrame = 0;
+      var startTime = null;
+      var delay = 1000 / fps;
+
+      function animate() {
+        var now = Date.now();
+        if (!startTime) {
+          startTime = now;
+        }
+        var elapsed = now - startTime;
+        if (elapsed >= delay) {
+          currentFrame = (currentFrame + 1) % gif.frames;
+          gif.style.objectPosition = '0 ' + (currentFrame * gif.offsetHeight) + 'px';
+          startTime = now - (elapsed % delay);
+        }
+        requestAnimationFrame(animate);
+      }
+
+      // Start animating the GIF
+      animate();
 
       // Delay hiding the preloader until the GIF finishes playing
       setTimeout(function() {
