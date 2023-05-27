@@ -274,10 +274,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       // Calculate the frames per second based on the loading time
       var fps = Math.ceil(gif.duration / (gifDuration / 1000));
 
+      // Calculate the delay between each frame based on the desired animation duration
+      var desiredDuration = 5000; // Adjust this value to change the desired animation duration in milliseconds
+      var delay = desiredDuration / gif.frames;
+
       // Adjust the animation frame rate of the GIF
       var currentFrame = 0;
       var startTime = null;
-      var delay = 1000 / fps;
 
       function animate() {
         var now = Date.now();
@@ -298,7 +301,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       // Delay hiding the preloader until the GIF finishes playing
       setTimeout(function() {
-        preloader.style.display = 'none';
+        gif.style.display = 'none';
+        setTimeout(function() {
+          preloader.style.display = 'none';
+        }, 500); // Delay hiding the preloader container for smooth transition
       }, gifDuration);
     });
   </script>
