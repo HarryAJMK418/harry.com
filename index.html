@@ -263,18 +263,19 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
   <script type="text/javascript">
-    var loader = document.getElementById("preloader");
-    var iframe = document.getElementById("hha");
-    var gif = document.querySelector("#preloader > img");
+    window.addEventListener('load', function() {
+      var preloader = document.getElementById('preloader');
+      var gif = document.querySelector('#preloader img');
+      
+      // Calculate the duration to play the GIF based on page loading time
+      var loadingTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+      var gifDuration = Math.max(loadingTime, 2000); // Minimum duration of 2 seconds
 
-    gif.addEventListener("load", function() {
-      loader.style.display = "none";
-      iframe.style.display = "block";
+      // Delay hiding the preloader until the GIF finishes playing
+      setTimeout(function() {
+        preloader.style.display = 'none';
+      }, gifDuration);
     });
-
-    iframe.onload = function() {
-      loader.style.display = "none";
-    };
   </script>
 
 </body>
