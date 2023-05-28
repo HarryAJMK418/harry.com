@@ -320,14 +320,13 @@ document.getElementById("c6").onclick = function() {
     });
   }
 </script-->
-<script type="text/javascript">
+<script>
   // Store the audio elements and their current time in an object
   var loader = document.getElementById("preloader");
   window.addEventListener("load", function(){
     loader.style.display = "none";
   });
-
-var audioElements = {
+   var audioElements = {
     a1: { element: document.getElementById('a1'), currentTime: 0 },
     a2: { element: document.getElementById('a2'), currentTime: 0 },
     a3: { element: document.getElementById('a3'), currentTime: 0 },
