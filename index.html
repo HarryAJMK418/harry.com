@@ -289,13 +289,38 @@ document.getElementById("c6").onclick = function() {
     else audio.pause();
 };
 </script-->
-<script type="text/javascript">
+<!--script type="text/javascript">
   var loader = document.getElementById("preloader");
   window.addEventListener("load", function(){
     loader.style.display = "none";
   });
 
-  <script>
+  var clickableImages = document.getElementsByClassName("clickable");
+  var audioElements = document.getElementsByTagName("audio");
+
+  for (var i = 0; i < clickableImages.length; i++) {
+    clickableImages[i].addEventListener("click", function() {
+      var audioId = "a" + this.id.slice(1);
+      var audio = document.getElementById(audioId);
+
+      // Pause all audio elements except the clicked one
+      for (var j = 0; j < audioElements.length; j++) {
+        if (audioElements[j] !== audio) {
+          audioElements[j].pause();
+        }
+      }
+
+      // Toggle the play/pause state of the clicked audio
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0; // Reset audio to the beginning
+      }
+    });
+  }
+</script-->
+<script>
   // Store the audio elements and their current time in an object
   var loader = document.getElementById("preloader");
   window.addEventListener("load", function(){
@@ -340,7 +365,6 @@ document.getElementById("c6").onclick = function() {
       togglePlayback(id);
     });
   }
-</script>
 </script>
 
 </body>
