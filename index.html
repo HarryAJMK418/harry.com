@@ -295,30 +295,52 @@ document.getElementById("c6").onclick = function() {
     loader.style.display = "none";
   });
 
-  var clickableImages = document.getElementsByClassName("clickable");
-  var audioElements = document.getElementsByTagName("audio");
+  <script>
+  // Store the audio elements and their current time in an object
+  var loader = document.getElementById("preloader");
+  window.addEventListener("load", function(){
+    loader.style.display = "none";
+  });
+     var audioElements = {
+    a1: { element: document.getElementById('a1'), currentTime: 0 },
+    a2: { element: document.getElementById('a2'), currentTime: 0 },
+    a3: { element: document.getElementById('a3'), currentTime: 0 },
+    a4: { element: document.getElementById('a4'), currentTime: 0 },
+    a5: { element: document.getElementById('a5'), currentTime: 0 },
+    a6: { element: document.getElementById('a6'), currentTime: 0 }
+  };
 
-  for (var i = 0; i < clickableImages.length; i++) {
-    clickableImages[i].addEventListener("click", function() {
-      var audioId = "a" + this.id.slice(1);
-      var audio = document.getElementById(audioId);
+  var currentAudio = null;
 
-      // Pause all audio elements except the clicked one
-      for (var j = 0; j < audioElements.length; j++) {
-        if (audioElements[j] !== audio) {
-          audioElements[j].pause();
-        }
-      }
+  function togglePlayback(id) {
+  if (currentAudio !== null && currentAudio !== id) {
+    audioElements[currentAudio].element.pause();
+  }
 
-      // Toggle the play/pause state of the clicked audio
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
-      }
+  var audio = audioElements[id].element;
+  var currentTime = audioElements[id].currentTime;
+
+  if (audio.readyState >= 2) {
+    audio.currentTime = currentTime;
+    audio.play();
+  } else {
+    audio.addEventListener('loadedmetadata', function() {
+      audio.currentTime = currentTime;
+      audio.play();
     });
   }
+
+  currentAudio = id;
+}
+
+  var images = document.getElementsByClassName('clickable');
+  for (var i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function(event) {
+      var id = event.target.id.replace('c', 'a');
+      togglePlayback(id);
+    });
+  }
+</script>
 </script>
 
 </body>
