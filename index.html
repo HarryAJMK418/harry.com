@@ -290,14 +290,19 @@ document.getElementById("c6").onclick = function() {
 };
 </script-->
 <script type="text/javascript">
-  // Hide scrollbar on page load
-  document.documentElement.style.overflow = 'hidden';
+  function hideScrollbarAndCursor() {
+    // Hide scrollbar on page load
+    document.documentElement.style.overflow = 'hidden';
+    // Hide cursor on page load
+    document.body.style.cursor = 'none';
 
-  // Show scrollbar after the page has loaded
-  window.addEventListener('load', function() {
-    document.documentElement.style.overflow = 'auto';
-    document.getElementById('preloader').style.display = 'none';
-  });
+    // Show scrollbar and cursor after the page has loaded
+    window.addEventListener('load', function() {
+      document.documentElement.style.overflow = 'auto';
+      document.getElementById('preloader').style.display = 'none';
+      document.body.style.cursor = 'default';
+    });
+  }
 
   var clickableImages = document.getElementsByClassName("clickable");
   var audioElements = document.getElementsByTagName("audio");
