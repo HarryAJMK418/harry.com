@@ -290,9 +290,13 @@ document.getElementById("c6").onclick = function() {
 };
 </script-->
 <script type="text/javascript">
-  var loader = document.getElementById("preloader");
-  window.addEventListener("load", function(){
-    loader.style.display = "none";
+  // Hide scrollbar on page load
+  document.documentElement.style.overflow = 'hidden';
+
+  // Show scrollbar after the page has loaded
+  window.addEventListener('load', function() {
+    document.documentElement.style.overflow = 'auto';
+    document.getElementById('preloader').style.display = 'none';
   });
 
   var clickableImages = document.getElementsByClassName("clickable");
