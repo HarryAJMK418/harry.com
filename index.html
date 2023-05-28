@@ -35,7 +35,7 @@
    transform-origin: center center;
    pointer-events: none;
    z-index: 1000;
-
+   display: none;
 }
 .grow{
   transform: scale(3);
@@ -77,7 +77,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <body class="w3-black">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="hha"></iframe>
 <div id="preloader"></div>
-<div class="cursor"></div>
+<div class="cursor" id="cursorrr"></div>
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->
@@ -374,6 +374,36 @@ document.getElementById("c6").onclick = function() {
       togglePlayback(id);
     });
   }
+  
+  
+  
+  
+  
+  
+  // Hide the scroll bar and cursor when the website is loading
+document.documentElement.style.overflow = 'hidden';
+
+
+// Add an event listener to show the scroll bar and cursor once the website finishes loading
+window.addEventListener('load', function() {
+  document.documentElement.style.overflow = 'auto';
+  
+});
+
+
+
+
+// Hide the div when the website loads
+document.addEventListener('DOMContentLoaded', function() {
+  var myDiv = document.getElementById('cursorrr');
+  myDiv.style.display = 'none';
+});
+
+// Show the div when the website is loaded
+window.addEventListener('load', function() {
+  var myDiv = document.getElementById('cursorrr');
+  myDiv.style.display = 'block';
+});
 </script>
 
 </body>
