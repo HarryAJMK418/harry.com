@@ -325,8 +325,7 @@ document.getElementById("c6").onclick = function() {
   var loader = document.getElementById("preloader");
   window.addEventListener("load", function(){
     loader.style.display = "none";
-  });
-     var audioElements = {
+  var audioElements = {
     a1: { element: document.getElementById('a1'), currentTime: 0 },
     a2: { element: document.getElementById('a2'), currentTime: 0 },
     a3: { element: document.getElementById('a3'), currentTime: 0 },
@@ -338,25 +337,23 @@ document.getElementById("c6").onclick = function() {
   var currentAudio = null;
 
   function togglePlayback(id) {
-  if (currentAudio !== null && currentAudio !== id) {
-    audioElements[currentAudio].element.pause();
-  }
+    if (currentAudio !== null && currentAudio !== id) {
+      audioElements[currentAudio].element.pause();
+    }
 
-  var audio = audioElements[id].element;
-  var currentTime = audioElements[id].currentTime;
+    var audio = audioElements[id].element;
+    var currentTime = audioElements[id].currentTime;
 
-  if (audio.readyState >= 2) {
-    audio.currentTime = currentTime;
-    audio.play();
-  } else {
-    audio.addEventListener('loadedmetadata', function() {
+    if (audio.paused) {
       audio.currentTime = currentTime;
       audio.play();
-    });
-  }
+    } else {
+      audio.pause();
+      audioElements[id].currentTime = audio.currentTime;
+    }
 
-  currentAudio = id;
-}
+    currentAudio = id;
+  }
 
   var images = document.getElementsByClassName('clickable');
   for (var i = 0; i < images.length; i++) {
